@@ -2,6 +2,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import SearchBar from "./components/search_bar";
 // api key
 const API_KEY = "AIzaSyCGtIV4hFOR2jXiuJoCWtRk-PmjA_jFnSE";
 /*
@@ -23,7 +24,11 @@ const API_KEY = ((f) => {
 
 // create new copmonenet to produce html
 const App = () => {
-  return <div>Hi!</div>;
+  return (
+    <div>
+      <SearchBar />
+    </div>
+  );
 }
 
 // put component in dom
