@@ -10,14 +10,27 @@ const SearchBar = () => {
 
 // class-based
 class SearchBar extends Component {
-  render() {
-    //return <input onChange={this.onInputChange} />
-    return <input onChange={
-      (event) => console.log(event.target.value)
-    } />
+  // initializing state in a class-based component
+  // NOTE: functional components don't have states, only class-based
+  constructor(props) {
+    super(props);
+
+    this.state = { term: "" }
   }
 
-  // event handler 
+  render() {
+    //return <input onChange={this.onInputChange} />
+    return (
+      <div>
+        <input onChange={
+          (event) => this.setState({ term: event.target.value })
+        } />
+        Value of the input: {this.state.term}
+      </div>
+    );
+  }
+
+  // event handler
   /*
   onInputChange(event) {
     console.log(event.target.value)
