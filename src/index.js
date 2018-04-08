@@ -28,11 +28,11 @@ class App extends Component {
   }
 
   // rendering
+  // passing data from the parent state to the child state (passing props)
   render() {
     return (
       <div>
         <SearchBar />
-        // passing data from the parent state to the child state (passing props)
         <VideoList videos={this.state.videos} />
       </div>
     );
