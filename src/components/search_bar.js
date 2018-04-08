@@ -17,7 +17,7 @@ class SearchBar extends Component {
     } />
   }
 
-  // event handler
+  // event handler 
   /*
   onInputChange(event) {
     console.log(event.target.value)
