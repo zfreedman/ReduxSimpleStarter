@@ -24,8 +24,14 @@ class App extends Component {
       selectedVideo: null
     };
 
+    // initial serach
+    this.videoSearch("surfboards");
+  }
+
+  // implementing video search
+  videoSearch(term) {
     // make search for surf boards
-    YTSearch({key: API_KEY, term: "surfboards"}, (videos) => {
+    YTSearch({key: API_KEY, term: term}, (videos) => {
       // setting state (cause rerender)
       // this.setState({ videos: videos })
       this.setState({
@@ -41,7 +47,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <SearchBar />
+        <SearchBar onSearchTermChange={term => this.videoSearch(term)}/>
         <VideoDetail video={this.state.selectedVideo} />
         <VideoList
           videos={this.state.videos}
