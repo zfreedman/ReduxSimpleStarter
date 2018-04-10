@@ -4,6 +4,8 @@ import ReactDOM from "react-dom";
 
 // youtube search
 import YTSearch from "youtube-api-search";
+// lodash for throttling
+import _ from "lodash";
 
 // custom components
 import SearchBar from "./components/search_bar";
@@ -45,9 +47,11 @@ class App extends Component {
   // rendering
   // passing data from the parent state to the child state (passing props)
   render() {
+    const videoSearch = _.debounce((term) => {this.videoSearch(term) }, 300);
+
     return (
       <div>
-        <SearchBar onSearchTermChange={term => this.videoSearch(term)}/>
+        <SearchBar onSearchTermChange={videoSearch}/>
         <VideoDetail video={this.state.selectedVideo} />
         <VideoList
           videos={this.state.videos}
